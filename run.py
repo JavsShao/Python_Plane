@@ -6,12 +6,12 @@ from sys import exit
 SCREEN_WIDTH = 400
 SCREEN_HIGHT = 800
 
-# 初始化游戏
+# 初始化游戏,并设置游戏窗口的大小
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HIGHT))
 pygame.display.set_caption('飞机大战')
 
-# 载入背景图
+# 载入背景图片
 background = pygame.image.load('resources/image/background.png')
 
 while True:
