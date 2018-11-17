@@ -102,6 +102,19 @@ while True:
         if bullet.rect.bottom < 0:
             player.bullets.remove(bullet)
 
+    # 移动敌机，若超出窗口范围则删除
+    for enemy in enemies1:
+        enemy.move()
+        # 判断玩家是否被击中
+        if pygame.sprite.collide_circle(enemy, player):
+            enemies_down.add(enemy)
+            enemies1.remove(enemy)
+            player.is_hit = True
+            game_over_sound.play()
+            break
+        if enemy.rect.top > SCREEN_HEIGHT:
+            enemies1.remove(enemy)
+
     # 绘制背景
     screen.fill(0)
     screen.blit(background, (0,0))
