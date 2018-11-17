@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from sys import exit
+from gamerole import *
 
 
 SCREEN_WIDTH = 400
@@ -24,7 +25,21 @@ pygame.mixer.music.set_volume(0.25)
 
 # 载入背景图片
 background = pygame.image.load('resources/image/background.png')
+game_over = pygame.image.load('resources/image/gameover.png')
 
+filename = 'resources/image/shoot.png'
+plane_img = pygame.image.load(filename)
+
+# 设置玩家相关参数
+player_rect = []
+player_rect.append(pygame.Rect(0, 99, 102, 126))        # 玩家精灵图片区域
+player_rect.append(pygame.Rect(165, 360, 102, 126))
+player_rect.append(pygame.Rect(165, 234, 102, 126))     # 玩家爆炸精灵图片区域
+player_rect.append(pygame.Rect(330, 624, 102, 126))
+player_rect.append(pygame.Rect(330, 498, 102, 126))
+player_rect.append(pygame.Rect(432, 624, 102, 126))
+player_pos = [200, 600]
+player = Player(plane_img, player_rect, player_pos)
 
 
 while True:
