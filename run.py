@@ -96,6 +96,12 @@ while True:
     if enemy_frequency >= 100:
         enemy_frequency = 0
 
+    # 移动子弹，若超出窗口范围则删除
+    for bullet in player.bullets:
+        bullet.move()
+        if bullet.rect.bottom < 0:
+            player.bullets.remove(bullet)
+
     # 绘制背景
     screen.fill(0)
     screen.blit(background, (0,0))
