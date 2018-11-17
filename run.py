@@ -115,6 +115,11 @@ while True:
         if enemy.rect.top > SCREEN_HEIGHT:
             enemies1.remove(enemy)
 
+    # 将被击中的敌机对象添加到击毁敌机Group中，用来渲染击毁动画
+    enemies1_down = pygame.sprite.groupcollide(enemies1, player.bullets, 1, 1)
+    for enemy_down in enemies1_down:
+        enemies_down.add(enemy_down)
+
     # 绘制背景
     screen.fill(0)
     screen.blit(background, (0,0))
