@@ -179,8 +179,19 @@ while True:
         if key_pressed[K_d] or key_pressed[K_RIGHT]:
             player.moveRight()
 
-    # 处理游戏退出
+font = pygame.font.Font(None, 48)
+text = font.render('Score: ' + str(score), True, (255, 0, 0))
+text_rect = text.get_rect()
+text_rect.centerx = screen.get_rect().centerx
+text_rect.centery = screen.get_rect().centery + 24
+screen.blit(game_over, (0, 0))
+screen.blit(text, text_rect)
+
+
+
+while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+    pygame.display.update()
