@@ -76,6 +76,15 @@ while True:
     # 控制游戏最大帧率为60
     clock.tick(60)
 
+    # 控制发射子弹频率,并发射子弹
+    if not player.is_hit:
+        if shoot_frequency % 15 == 0:
+            bullet_sound.play()
+            player.shoot(bullet_img)
+        shoot_frequency += 1
+        if shoot_frequency >= 15:
+            shoot_frequency = 0
+
     # 绘制背景
     screen.fill(0)
     screen.blit(background, (0,0))
