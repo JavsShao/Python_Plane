@@ -1,3 +1,5 @@
+import random
+
 import pygame
 from pygame.locals import *
 from sys import exit
@@ -84,6 +86,15 @@ while True:
         shoot_frequency += 1
         if shoot_frequency >= 15:
             shoot_frequency = 0
+
+    # 生成敌机
+    if enemy_frequency % 50 == 0:
+        enemy1_pos = [random.randint(0, SCREEN_WIDTH - enemy1_rect.width), 0]
+        enemy1 = Enemy(enemy1_img, enemy1_down_imgs, enemy1_pos)
+        enemies1.add(enemy1)
+    enemy_frequency += 1
+    if enemy_frequency >= 100:
+        enemy_frequency = 0
 
     # 绘制背景
     screen.fill(0)
