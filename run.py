@@ -57,6 +57,9 @@ enemy1_down_imgs.append(plane_img.subsurface(pygame.Rect(930, 697, 57, 43)))
 
 enemies1 = pygame.sprite.Group()
 
+# 存储被击毁的飞机，用来渲染击毁精灵动画
+enemies_down = pygame.sprite.Group()
+
 while True:
     # 绘制背景
     screen.fill(0)
