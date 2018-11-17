@@ -25,6 +25,8 @@ pygame.mixer.music.set_volume(0.25)
 # 载入背景图片
 background = pygame.image.load('resources/image/background.png')
 
+
+
 while True:
     # 绘制背景
     screen.fill(0)
