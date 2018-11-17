@@ -135,6 +135,17 @@ while True:
     # 绘制飞机
     screen.blit(player, player_pos)
 
+    # 绘制击毁动画
+    for enemy_down in enemies_down:
+        if enemy_down.down_index == 0:
+            enemy1_down_sound.play()
+        if enemy_down.down_index > 7:
+            enemies_down.remove(enemy_down)
+            score += 1000
+            continue
+        screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
+        enemy_down.down_index += 1
+
 
     # 更新屏幕
     pygame.display.update()
