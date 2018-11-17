@@ -161,6 +161,24 @@ while True:
     # 更新屏幕
     pygame.display.update()
 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+    # 监听键盘事件
+    key_pressed = pygame.key.get_pressed()
+    # 若玩家被击中，则无效
+    if not player.is_hit:
+        if key_pressed[K_w] or key_pressed[K_UP]:
+            player.moveUp()
+        if key_pressed[K_s] or key_pressed[K_DOWN]:
+            player.moveDown()
+        if key_pressed[K_a] or key_pressed[K_LEFT]:
+            player.moveLeft()
+        if key_pressed[K_d] or key_pressed[K_RIGHT]:
+            player.moveRight()
+
     # 处理游戏退出
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
