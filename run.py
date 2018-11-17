@@ -60,6 +60,17 @@ enemies1 = pygame.sprite.Group()
 # 存储被击毁的飞机，用来渲染击毁精灵动画
 enemies_down = pygame.sprite.Group()
 
+shoot_frequency = 0
+enemy_frequency = 0
+
+player_down_index = 16
+
+score = 0
+
+clock = pygame.time.Clock()
+
+running = True
+
 while True:
     # 绘制背景
     screen.fill(0)
