@@ -146,6 +146,10 @@ while True:
         screen.blit(enemy_down.down_imgs[enemy_down.down_index // 2], enemy_down.rect)
         enemy_down.down_index += 1
 
+    # 绘制子弹和敌机
+    player.bullets.draw(screen)
+    enemies1.draw(screen)
+
 
     # 更新屏幕
     pygame.display.update()
