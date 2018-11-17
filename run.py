@@ -11,6 +11,17 @@ pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HIGHT))
 pygame.display.set_caption('飞机大战')
 
+# 载入游戏音乐
+bullet_sound = pygame.mixer.Sound('resources/sound/bullet.wav')
+enemy1_down_sound = pygame.mixer.Sound('resources/sound/enemy1_down.wav')
+game_over_sound = pygame.mixer.Sound('resources/sound/game_over.wav')
+bullet_sound.set_volume(0.3)
+enemy1_down_sound.set_volume(0.3)
+game_over_sound.set_volume(0.3)
+pygame.mixer.music.load('resources/sound/game_music.wav')
+pygame.mixer.music.play(-1, 0.0)
+pygame.mixer.music.set_volume(0.25)
+
 # 载入背景图片
 background = pygame.image.load('resources/image/background.png')
 
@@ -29,6 +40,7 @@ while True:
 
     # 绘制飞机
     screen.blit(player, player_pos)
+
 
     # 更新屏幕
     pygame.display.update()
