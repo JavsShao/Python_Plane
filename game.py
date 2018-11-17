@@ -16,3 +16,6 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.midbottom = init_pos
         self.speed = 10
+
+    def move(self):
+        self.rect.top -= self.speed
